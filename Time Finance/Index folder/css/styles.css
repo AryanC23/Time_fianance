@@ -1,52 +1,51 @@
-
-#title{
-  background-color: #F08080;
+#title {
+  background-color: #f08080;
   width: auto;
   height: 600px;
   text-align: center;
 }
 .resize {
-    width: 400px;
-    height: 300px;
+  width: 400px;
+  height: 300px;
 }
-h1, h2{
-  font-family: 'Montserrat-black';
+h1,
+h2 {
+  font-family: "Montserrat-black";
   font-size: 3rem;
   line-height: 1.5;
-
 }
-.container-fluid{
+.container-fluid {
   padding: 3% 10%;
   border-color: coral;
   border-bottom: 10px;
 }
 /*Navbar*/
-.navbar{
+.navbar {
   font-size: 20px;
   font-family: "Ubuntu";
   padding: 0 0 4.5rem;
 }
-.navbar-brand{
+.navbar-brand {
   font-size: 30px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: bold;
 }
-.nat-item{
-  padding: 0  20px;
+.nat-item {
+  padding: 0 20px;
 }
-.nav-link{
+.nav-link {
   font-size: 1.2rem;
-  font-family: "Montserrat-light"
+  font-family: "Montserrat-light";
 }
-#Timers{
+#Timers {
   background-color: hsl(33, 100%, 88%);
   text-align: center;
   width: auto;
 }
-.feature-box{
-  padding: 5% 8%
+.feature-box {
+  padding: 5% 8%;
 }
-img{
+img {
   border-color: coral;
-  border: 5px; 
+  border: 5px;
 }

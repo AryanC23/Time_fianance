@@ -1,193 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
+  <body onload="showEditTimer()">
+    <div id="timer-container" class="container">
+      <div id="timer"></div>
+      <div id="break_timer">
+        <h1 id="Time_to_break">Time to take a break</h1>
+        <br />
+        <button
+          id="start_breakbutton"
+          name="button"
+          class="btn btn-dark btn-lg"
+          onclick="break_timer()"
+        >
+          Click to start your break
+        </button>
+      </div>
 
-</head>
-<body onload="showEditTimer()">
-<div id= "timer-container" class="container">
-  <div id="timer"></div>
-  <div id= "break_timer">
-      <h1 id= "Time_to_break">Time to take a break</h1><br>
-      <button id="start_breakbutton" name="button" class="btn btn-dark btn-lg" onclick="break_timer()" >Click to start your break</button>
-  </div>
+      <div class="colorschemes">
+        <button
+          id="darkButton"
+          class="btn btn-dark btn-lg"
+          type="button"
+          name="button"
+          onclick="darkButton()"
+        >
+          Dark Mode
+        </button>
+        <button
+          id="lightButton"
+          class="btn btn-dark btn-lg"
+          type="button"
+          name="button"
+          onclick="lightButton()"
+        >
+          Light mode
+        </button>
+      </div>
 
-  <div class="colorschemes">
-    <button id="darkButton" class="btn btn-dark btn-lg" type="button" name="button" onclick="darkButton()">Dark Mode</button>
-    <button id="lightButton" class="btn btn-dark btn-lg" type="button" name="button" onclick="lightButton()">Light mode</button>
-  </div>
+      <div id="timerEditor">
+        <input id="timerInput" placeholder="Type the minutes" />
+        <button
+          id="updateButton"
+          name="button"
+          class="btn btn-dark btn-lg"
+          onclick="updateTimer()"
+        >
+          Update
+        </button>
+      </div>
 
+      <button
+        id="startButton"
+        name="button"
+        class="btn btn-dark btn-lg"
+        onclick="start()"
+        style="margin-right: 10px"
+      >
+        start
+      </button>
+      <button
+        id="stopButton"
+        name="button"
+        class="btn btn-dark btn-lg"
+        onclick="stop()"
+        style="margin-right: 10px"
+      >
+        Take a Bathroom Break
+      </button>
+      <button
+        id="editButton"
+        name="button"
+        class="btn btn-dark btn-lg"
+        onclick="showEditTimer()"
+      >
+        edit
+      </button>
+    </div>
 
-  <div id="timerEditor">
-      <input id="timerInput" placeholder="Type the minutes"/>
-      <button id="updateButton" name="button" class="btn btn-dark btn-lg" onclick="updateTimer()">Update</button>
-  </div>
+    <div class="for-to-do-list" class="container">
+      <div id="myDIV" class="header">
+        <h2>To Do List</h2>
+        <input type="text" id="myInput" placeholder="Title..." />
+        <span onclick="newElement()" class="addBtn">Add</span>
+      </div>
 
-  <button id="startButton" name="button" class="btn btn-dark btn-lg" onclick="start()" style="margin-right: 10px;">start</button>
-  <button id="stopButton" name="button" class="btn btn-dark btn-lg" onclick="stop()" style="margin-right: 10px;">Take a Bathroom Break</button>
-  <button id="editButton" name="button" class="btn btn-dark btn-lg" onclick="showEditTimer()" >edit</button>
-</div>
-
-<div class="for-to-do-list" class="container">
-  <div id="myDIV" class="header">
-<h2>To Do List</h2>
-<input type="text" id="myInput" placeholder="Title...">
-<span onclick="newElement()" class="addBtn">Add</span>
-</div>
-
-<ul id="myUL">
-
-</ul>
-</div>
+      <ul id="myUL"></ul>
+    </div>
 
     <script>
-
-
-    function break_timer() {
-
-        document.getElementById("editButton").style.display="none";
-        document.getElementById("Time_to_break").style.display= "none";
-        document.getElementById("start_breakbutton").style.display= "none";
-        document.getElementById("stopButton").style.display= "none";
-        document.getElementById("startButton").style.display="none";
+      function break_timer() {
+        document.getElementById("editButton").style.display = "none";
+        document.getElementById("Time_to_break").style.display = "none";
+        document.getElementById("start_breakbutton").style.display = "none";
+        document.getElementById("stopButton").style.display = "none";
+        document.getElementById("startButton").style.display = "none";
         let nminutes = 5;
         timerStarts = nminutes;
-        time= nminutes * 60;
+        time = nminutes * 60;
         start();
-        }
+      }
 
-    function updateTimer() {
+      function updateTimer() {
         document.getElementById("stopButton").style.display = "block";
-        document.getElementById("editButton").style.display="block";
-        document.getElementById("timerEditor").style.display="none";
-        let input = document.getElementById('timerInput');
+        document.getElementById("editButton").style.display = "block";
+        document.getElementById("timerEditor").style.display = "none";
+        let input = document.getElementById("timerInput");
         let newMinutes = parseInt(input.value);
         timerStartMinutes = newMinutes;
         time = timerStartMinutes * 60;
         start();
-    }
+      }
 
+      function showEditTimer() {
+        stop();
+        document.getElementById("stopButton").style.display = "none";
+        document.getElementById("startButton").style.display = "none";
+        document.getElementById("timer").style.display = "none";
+        document.getElementById("timerEditor").style.display = "block";
+        document.getElementById("editButton").style.display = "none";
+      }
 
+      let timerStartMinutes = 5;
+      let time = timerStartMinutes * 60;
 
-    function showEditTimer() {
-            stop();
-            document.getElementById("stopButton").style.display = "none";
-            document.getElementById("startButton").style.display="none";
-            document.getElementById("timer").style.display = "none";
-            document.getElementById("timerEditor").style.display="block";
-            document.getElementById("editButton").style.display="none";
+      let interval;
+
+      function start() {
+        document.getElementById("timer").innerHTML = "";
+        interval = setInterval(timer, 1000);
+        document.getElementById("stopButton").style.display = "block";
+        document.getElementById("startButton").style.display = "none";
+        document.getElementById("timer").style.display = "block";
+      }
+      function stop() {
+        clearInterval(interval);
+        document.getElementById("stopButton").style.display = "none";
+        document.getElementById("startButton").style.display = "block";
+      }
+      function darkButton() {
+        document.getElementById("darkButton").style.display = "none";
+        document.getElementById("lightButton").style.display = "block";
+        document.body.style.background = "#395144";
+      }
+      function lightButton() {
+        document.getElementById("darkButton").style.display = "block";
+        document.getElementById("lightButton").style.display = "none";
+        document.body.style.background = "hsl(33, 100%, 88%)";
+      }
+      function timer() {
+        let minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+
+        let timerDOMElement = document.getElementById("timer");
+        timerDOMElement.innerHTML = `${
+          minutes < 10 ? "0" + minutes : minutes
+        }:${seconds < 10 ? "0" + seconds : seconds}`;
+        if (minutes == 0 && seconds == 0) {
+          document.getElementById("timer").style.display = "none";
+          document.getElementById("break_timer").style.display = "block";
+          document.getElementById("stopButton").style.display = "none";
+          document.getElementById("editButton").style.display = "none";
+          return;
         }
 
+        time--;
+      }
+      // Create a "close" button and append it to each list item
+      var myNodelist = document.getElementsByTagName("LI");
+      var i;
+      for (i = 0; i < myNodelist.length; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        myNodelist[i].appendChild(span);
+      }
 
-        let timerStartMinutes = 5;
-        let time = timerStartMinutes * 60;
+      // Click on a close button to hide the current list item
+      var close = document.getElementsByClassName("close");
+      var i;
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+          var div = this.parentElement;
+          div.style.display = "none";
+        };
+      }
 
-        let interval;
+      // Add a "checked" symbol when clicking on a list item
+      var list = document.querySelector("ul");
+      list.addEventListener(
+        "click",
+        function (ev) {
+          if (ev.target.tagName === "LI") {
+            ev.target.classList.toggle("checked");
+          }
+        },
+        false
+      );
 
-        function start() {
-            document.getElementById("timer").innerHTML = "";
-            interval = setInterval(timer,1000);
-            document.getElementById("stopButton").style.display = "block";
-            document.getElementById("startButton").style.display = "none";
-            document.getElementById("timer").style.display = "block";
-
+      // Create a new list item when clicking on the "Add" button
+      function newElement() {
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("myInput").value;
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if (inputValue === "") {
+          alert("You must write something!");
+        } else {
+          document.getElementById("myUL").appendChild(li);
         }
-        function stop() {
-            clearInterval(interval);
-            document.getElementById("stopButton").style.display = "none";
-            document.getElementById("startButton").style.display = "block";
+        document.getElementById("myInput").value = "";
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function () {
+            var div = this.parentElement;
+            div.style.display = "none";
+          };
         }
-        function darkButton(){
-          document.getElementById("darkButton").style.display = "none";
-          document.getElementById("lightButton").style.display = "block";
-          document.body.style.background = "#395144";
-        }
-        function lightButton(){
-          document.getElementById("darkButton").style.display = "block";
-          document.getElementById("lightButton").style.display = "none";
-          document.body.style.background = "hsl(33, 100%, 88%)";
-        }
-        function timer() {
-            let minutes = Math.floor(time / 60);
-            let seconds = time % 60;
-
-            let timerDOMElement = document.getElementById('timer');
-            timerDOMElement.innerHTML = `${minutes <10? ('0'+minutes): minutes}:${seconds<10?"0"+seconds:seconds}`
-            if(minutes == 0 && seconds == 0){
-              document.getElementById("timer").style.display = "none";
-              document.getElementById("break_timer").style.display = "block";
-              document.getElementById("stopButton").style.display = "none";
-              document.getElementById("editButton").style.display="none";
-                return
-
-            }
-
-
-            time--;
-        }
-        // Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
-
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
-
-// Add a "checked" symbol when clicking on a list item
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
-
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
-
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}
-
+      }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
