@@ -1,0 +1,38 @@
+#information{
+  background-color: #4E6C50;
+  align-content: center;
+
+}
+h1{
+  text-align: center;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+img{
+  width: 300px;
+  height: 200px;
+  padding-right: 40px;
+}
+.container-fluid{
+  padding: 3% 10%;
+  border-color: coral;
+  border-bottom: 10px;
+}
+/*Navbar*/
+.navbar{
+  font-size: 20px;
+  font-family: "Ubuntu";
+  padding: 0 0 4.5rem;
+}
+.navbar-brand{
+  font-size: 30px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+.nat-item{
+  padding: 0  20px;
+}
+.nav-link{
+  font-size: 1.2rem;
+  font-family: "Montserrat-light"
+}
