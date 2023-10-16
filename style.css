@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+
+#title {
+    background-color: #f08080;
+    /* width: auto; */
+    /* height: 600px; */
+    /* text-align: center; */
+}
+
+h1,
+h2 {
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+h3 {
+    font-family: "Montserrat";
+}
+
+.container-fluid {
+    padding: 3% 10%;
+}
+
+/*Navbar*/
+.navbar {
+    font-size: 20px;
+    font-family: "Ubuntu", sans-serif;
+    padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+
+.nat-item {
+    padding: 0 20px;
+}
+
+.nav-link {
+    color: black;
+    font-size: 1.2rem;
+    font-family: "Montserrat";
+    font-weight: 500;
+}
+
+#Timers {
+    background-color: hsl(33, 100%, 88%);
+    text-align: center;
+    width: auto;
+}
+
+.feature-box {
+    padding: 5% 8%;
+}
+
+img {
+    border-color: coral;
+    border: 5px;
+}
+
+#title .row> :first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title .row> :last-child img {
+    width: 100%;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-family: "Montserrat";
+    font-weight: 600;
+}
+
+.hero-buttons {
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+#Timers .row>* {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
